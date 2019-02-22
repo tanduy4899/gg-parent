@@ -1,0 +1,165 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>vn.gg</groupId>
+	<artifactId>gg-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0</version>
+	<name>LGSP Application Framework for Java - Parent</name>
+	<description>The parent of LGSP Application Framework for Java</description>
+	<url>http://toancauxanh.vn</url>
+	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.15.RELEASE</version>
+	</parent>
+	
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>manual</distribution>
+		</license>
+	</licenses>
+	<organization>
+		<name>toancauxanh.vn</name>
+		<url>http://toancauxanh.vn</url>
+	</organization>
+	<developers>
+		<developer>
+			<name>Trandtb</name>
+			<organization>Toan Cau Xanh</organization>
+			<organizationUrl>http://toancauxanh.vn/</organizationUrl>
+		</developer>
+	</developers>
+	<!-- <scm>
+		<connection></connection>
+		<developerConnection></developerConnection>
+		<url></url>
+	</scm> -->
+	
+	<dependencyManagement>
+		<dependencies>
+			<!-- == Begin ZK== -->
+			<dependency>
+				<groupId>org.zkoss.zk</groupId>
+				<artifactId>zkplus</artifactId>
+				<version>${zk.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.zkoss.zk</groupId>
+				<artifactId>zhtml</artifactId>
+				<version>${zk.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.zkoss.zk</groupId>
+				<artifactId>zkbind</artifactId>
+				<version>${zk.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.zkoss.zk</groupId>
+				<artifactId>zul</artifactId>
+				<version>${zk.version}</version>
+			</dependency>
+			<!-- == End ZK== -->
+
+			<!-- Lombok Project support -->	
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+			</dependency>
+			<!-- Mariadb database support -->		
+			<dependency>
+				<groupId>org.mariadb.jdbc</groupId>
+				<artifactId>mariadb-java-client</artifactId>
+				<version>${mariadb.version}</version>
+			</dependency>
+			
+			<!-- QueryDSL support -->		
+			<dependency>
+				<groupId>com.querydsl</groupId>
+				<artifactId>querydsl-apt</artifactId>
+				<version>${querydsl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.querydsl</groupId>
+				<artifactId>querydsl-jpa</artifactId>
+				<version>${querydsl.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.apache.commons</groupId>
+			    <artifactId>commons-lang3</artifactId>
+			    <version>${commons.lang3.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.apache.shiro</groupId>
+			    <artifactId>shiro-core</artifactId>
+			    <version>${shiro.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<pluginManagement>
+        	<plugins>
+	        	<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<overwrite>true</overwrite>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+				</plugin>
+        		<plugin>
+					<groupId>com.mysema.maven</groupId>
+					<artifactId>apt-maven-plugin</artifactId>
+					<!-- <executions>
+						<execution>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>process</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>target/generated-sources/annotations</outputDirectory>
+								<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+								<packages>
+									<package>vn.lgsp.core.domain</package>
+								</packages> 
+							</configuration>
+						</execution>
+					</executions> -->
+				</plugin>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+        	</plugins>
+        </pluginManagement>
+	</build>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<zk.version>8.5.0</zk.version>
+		<mariadb.version>2.2.4</mariadb.version>
+		<lombok.version>1.16.20</lombok.version>
+		<querydsl.version>4.2.1</querydsl.version>
+		<commons.lang3.version>3.7</commons.lang3.version>
+		<shiro.version>1.4.0</shiro.version>
+	</properties>
+</project>
