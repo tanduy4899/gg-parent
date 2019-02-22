@@ -1,4 +1,4 @@
-# lgsp-parent
+# gg-parent
 
 Install into local repository
 ``
